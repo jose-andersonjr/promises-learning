@@ -93,3 +93,20 @@ const resolveAll2 = Promise.race([p4, p5, p6]).then((data) => {
 
 
 // Fetch request na API do GitHub
+// Fetch API   
+ 
+const userName = 'jose-andersonjr'
+
+fetch(`https://api.github.com/users/${userName}`, {
+    method: 'GET',
+    headers: {
+        Accept: 'application/vnd.github.v3+json',
+    }
+}).then((response) => {
+
+    return response.json()
+}).then((data) => {
+    console.log(`O nome do usuário é ${data.name}`)
+}).catch((err) => {
+    console.log(`Houve algum erro: ${err}`)
+})
